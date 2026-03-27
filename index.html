@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>CLEARLET | Pure. Clear. Radiant.</title>
+  <!-- Google Fonts & Font Awesome -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: #1a2a2f;
+      background-color: #ffffff;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    h1, h2, h3, .logo, .nav-links a {
+      font-family: 'Space Grotesk', sans-serif;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* header / navigation */
+    header {
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(8px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid #eef2f0;
+      padding: 0.75rem 0;
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .logo a {
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: #1f4f3a;
+      text-decoration: none;
+      letter-spacing: -0.3px;
+    }
+
+    .logo span {
+      font-weight: 300;
+      color: #8ba888;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 500;
+      color: #2c3e2f;
+      font-family: 'Inter', sans-serif;
+      transition: color 0.2s;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a:hover, .nav-links a.active {
+      color: #3b8b5e;
+    }
+
+    .mobile-menu {
+      display: none;
+      font-size: 1.6rem;
+      cursor: pointer;
+      color: #1f4f3a;
+    }
+
+    /* buttons */
+    .btn {
+      display: inline-block;
+      background-color: #1f4f3a;
+      color: white;
+      padding: 0.85rem 2rem;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1.5px solid #1f4f3a;
+      color: #1f4f3a;
+    }
+
+    .btn-outline:hover {
+      background: #1f4f3a;
+      color: white;
+    }
+
+    .btn-light {
+      background: rgba(255,255,255,0.95);
+      color: #1f4f3a;
+    }
+
+    .btn-light:hover {
+      background: white;
+      transform: translateY(-2px);
+    }
+
+    .btn:hover {
+      background-color: #0f3a2a;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+
+    /* hero section */
+    .hero {
+      background: linear-gradient(135deg, #f4fbf7 0%, #eaf3ed 100%);
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 3rem;
+    }
+
+    .hero-content {
+      flex: 1;
+      max-width: 550px;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(31, 79, 58, 0.12);
+      padding: 0.3rem 1rem;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: #1f4f3a;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      font-weight: 600;
+      line-height: 1.2;
+      margin-bottom: 1.2rem;
+      color: #0a2a1f;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: #4a5b52;
+      margin-bottom: 2rem;
+    }
+
+    .hero-image {
+      flex: 1;
+      text-align: center;
+    }
+
+    .hero-image img {
+      max-width: 100%;
+      border-radius: 32px;
+      box-shadow: 0 30px 40px -20px rgba(0,0,0,0.15);
+    }
+
+    /* sections */
+    section {
+      padding: 5rem 0;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.2rem;
+      font-weight: 600;
+      color: #1f4f3a;
+      margin-bottom: 1rem;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: #6b7a71;
+      max-width: 650px;
+      margin: 0 auto 3rem auto;
+      font-size: 1rem;
+    }
+
+    /* features grid */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+      margin-top: 1rem;
+    }
+
+    .feature-card {
+      text-align: center;
+      padding: 2rem 1.5rem;
+      background: #fefefe;
+      border-radius: 28px;
+      transition: all 0.3s;
+      border: 1px solid #eef2ef;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 30px -12px rgba(0,0,0,0.08);
+      border-color: #cde0d5;
+    }
+
+    .feature-icon {
+      background: #eef6f1;
+      width: 70px;
+      height: 70px;
+      line-height: 70px;
+      border-radius: 50%;
+      margin: 0 auto 1.2rem;
+    }
+
+    .feature-icon i {
+      font-size: 2rem;
+      color: #1f4f3a;
+    }
+
+    .feature-card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.8rem;
+      color: #1f4f3a;
+    }
+
+    .feature-card p {
+      color: #5c6e63;
+      font-size: 0.9rem;
+    }
+
+    /* product showcase */
+    .product-showcase {
+      background: #fafdf9;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .product-card {
+      background: white;
+      border-radius: 28px;
+      overflow: hidden;
+      transition: all 0.3s;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.03);
+      border: 1px solid #eef2ef;
+    }
+
+    .product-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 25px 35px -12px rgba(0,0,0,0.1);
+    }
+
+    .product-img {
+      background: #f5f9f5;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .product-img img {
+      max-width: 80%;
+      height: auto;
+    }
+
+    .product-info {
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    .product-info h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .product-info p {
+      color: #6b7a71;
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+    }
+
+    .price {
+      font-weight: 700;
+      color: #1f4f3a;
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    /* testimonial */
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .testimonial-card {
+      background: #fafdf9;
+      padding: 2rem;
+      border-radius: 28px;
+      border: 1px solid #e4ece5;
+    }
+
+    .stars {
+      color: #f5b042;
+      margin-bottom: 1rem;
+    }
+
+    .testimonial-card p {
+      font-style: italic;
+      margin-bottom: 1.2rem;
+      color: #2e443a;
+    }
+
+    .customer {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .customer img {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .customer h4 {
+      font-size: 1rem;
+      margin-bottom: 0.2rem;
+    }
+
+    /* newsletter & cta */
+    .newsletter {
+      background: linear-gradient(135deg, #eaf3ed 0%, #ddebe2 100%);
+      border-radius: 48px;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+
+    .newsletter h3 {
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .newsletter p {
+      margin-bottom: 1.5rem;
+    }
+
+    .newsletter-form {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .newsletter-form input {
+      padding: 0.9rem 1.5rem;
+      border-radius: 50px;
+      border: none;
+      width: 280px;
+      font-family: 'Inter', sans-serif;
+    }
+
+    /* footer */
+    footer {
+      background: #0a261c;
+      color: #cddfd4;
+      padding: 3rem 0 2rem;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer-col h4 {
+      color: white;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+
+    .footer-col a {
+      display: block;
+      color: #bdd0c4;
+      text-decoration: none;
+      margin-bottom: 0.6rem;
+      font-size: 0.85rem;
+    }
+
+    .footer-col a:hover {
+      color: #ffffff;
+    }
+
+    .social-icons a {
+      display: inline-block;
+      margin-right: 1rem;
+      font-size: 1.2rem;
+      color: #bdd0c4;
+    }
+
+    .copyright {
+      text-align: center;
+      padding-top: 2rem;
+      border-top: 1px solid #2b4538;
+      font-size: 0.75rem;
+    }
+
+    @media (max-width: 900px) {
+      .container {
+        padding: 0 1.5rem;
+      }
+      .hero h1 {
+        font-size: 2.4rem;
+      }
+      .hero .container {
+        flex-direction: column;
+        text-align: center;
+      }
+      .hero-content {
+        max-width: 100%;
+      }
+      .nav-links {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        background: white;
+        padding: 1rem;
+        gap: 1rem;
+        text-align: center;
+        border-radius: 24px;
+        margin-top: 1rem;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+      }
+      .nav-links.active {
+        display: flex;
+      }
+      .mobile-menu {
+        display: block;
+      }
+      .newsletter-form {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container nav-container">
+    <div class="logo">
+      <a href="#">CLEARLET<span>.</span></a>
+    </div>
+    <div class="mobile-menu" id="mobileMenuBtn">
+      <i class="fas fa-bars"></i>
+    </div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home">Beranda</a></li>
+      <li><a href="#about">Tentang</a></li>
+      <li><a href="#products">Produk</a></li>
+      <li><a href="#contact">Kontak</a></li>
+    </ul>
+  </div>
+</header>
+
+<main>
+  <!-- Hero section -->
+  <section id="home" class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <span class="hero-badge">✨ Pure. Clear. Radiant.</span>
+        <h1>Kulit bersih,<br>pikiran jernih.</h1>
+        <p>CLEARLET menghadirkan perawatan kulit minimalis dengan bahan-bahan alami pilihan. Formula transparan, tanpa bahan berbahaya, dan ramah lingkungan.</p>
+        <div class="hero-buttons" style="display: flex; gap: 1rem; flex-wrap: wrap;">
+          <a href="#products" class="btn">Jelajahi Produk</a>
+          <a href="#contact" class="btn btn-outline">Konsultasi Gratis</a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="CLEARLET skincare products" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- About / Filosofi -->
+  <section id="about">
+    <div class="container">
+      <h2 class="section-title">Lebih dari sekadar perawatan</h2>
+      <div class="section-subtitle">Kami percaya bahwa kulit yang sehat dimulai dari kejelasan — bahan, tujuan, dan dampak.</div>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-seedling"></i></div>
+          <h3>100% Transparan</h3>
+          <p>Setiap bahan tercantum jujur. Tidak ada parfum sintetis, SLS, atau bahan pengisi.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-recycle"></i></div>
+          <h3>Ramah Lingkungan</h3>
+          <p>Kemasan kaca daur ulang dan program isi ulang untuk mengurangi limbah plastik.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-flask"></i></div>
+          <h3>Dermatologically Tested</h3>
+          <p>Diuji oleh ahli kulit, cocok untuk kulit sensitif & semua jenis kulit.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-hand-holding-heart"></i></div>
+          <h3>Vegan & Cruelty-Free</h3>
+          <p>Tanpa bahan hewani, tidak diuji pada hewan. Bersertifikat Leaping Bunny.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Product Showcase -->
+  <section id="products" class="product-showcase">
+    <div class="container">
+      <h2 class="section-title">Ritual CLEARLET</h2>
+      <div class="section-subtitle">Rangkaian esensial untuk kulit yang bersih, tenang, dan bercahaya.</div>
+      <div class="product-grid">
+        <div class="product-card">
+          <div class="product-img">
+            <img src="https://images.unsplash.com/photo-1612817288484-6f916006741a?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Gentle Jelly Cleanser">
+          </div>
+          <div class="product-info">
+            <h3>Gentle Jelly Cleanser</h3>
+            <p>Pembersih berbasis jelly dengan ekstrak lidah buaya dan squalane. Melembutkan tanpa membuat kulit kering.</p>
+            <span class="price">Rp 189.000</span>
+            <a href="#contact" class="btn" style="padding: 0.5rem 1.2rem; font-size: 0.8rem;">Pesan Sekarang</a>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-img">
+            <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?ixlib=rb-4.0.3&auto=format&fit=crop&w=1974&q=80" alt="Clear Serum">
+          </div>
+          <div class="product-info">
+            <h3>Clarity Serum</h3>
+            <p>Niacinamide 5% + Zinc PCA, membantu menyamarkan noda, mengontrol minyak, dan mencerahkan.</p>
+            <span class="price">Rp 279.000</span>
+            <a href="#contact" class="btn" style="padding: 0.5rem 1.2rem; font-size: 0.8rem;">Pesan Sekarang</a>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-img">
+            <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-4.0.3&auto=format&fit=crop&w=2080&q=80" alt="Dewy Moisturizer">
+          </div>
+          <div class="product-info">
+            <h3>Dewy Barrier Cream</h3>
+            <p>Pelembap ringan dengan ceramide, shea butter, dan prebiotik. Memperkuat skin barrier.</p>
+            <span class="price">Rp 245.000</span>
+            <a href="#contact" class="btn" style="padding: 0.5rem 1.2rem; font-size: 0.8rem;">Pesan Sekarang</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section style="background: #ffffff;">
+    <div class="container">
+      <h2 class="section-title">Kata Mereka</h2>
+      <div class="section-subtitle">Lebih dari 10.000 wanita dan pria percaya pada kejelasan CLEARLET.</div>
+      <div class="testimonial-grid">
+        <div class="testimonial-card">
+          <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+          <p>"Kulitku yang cenderung breakout jadi jauh lebih tenang setelah pakai Clarity Serum dan Gentle Cleanser. Formula ringan dan bener-bener bersih. Terobsesi!"</p>
+          <div class="customer">
+            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="customer">
+            <div><h4>Amira S.</h4><span style="font-size: 0.7rem;">Pengguna 4 bulan</span></div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+          <p>"Akhirnya nemu skincare yang transparan bahan-bahannya. Kemasannya elegan, wangi natural, dan kulit jadi kenyal. Highly recommended!"</p>
+          <div class="customer">
+            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="customer">
+            <div><h4>Reza P.</h4><span style="font-size: 0.7rem;">Pecinta skincare minimalis</span></div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+          <p>"Produk CLEARLET nggak bikin iritasi padahal kulitku super sensitif. Sekarang jerawat jarang muncul dan bekas jerawat memudar. Love!"</p>
+          <div class="customer">
+            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="customer">
+            <div><h4>Karina W.</h4><span style="font-size: 0.7rem;">Kulit sensitif & eksim</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter & Contact -->
+  <section id="contact">
+    <div class="container">
+      <div class="newsletter">
+        <h3>Raih kulit yang lebih jernih ✨</h3>
+        <p>Dapatkan tips eksklusif, promo pertama, dan update koleksi terbaru.</p>
+        <form class="newsletter-form" id="newsletterForm">
+          <input type="email" placeholder="Email Anda" required>
+          <button type="submit" class="btn">Berlangganan</button>
+        </form>
+        <p style="font-size: 0.7rem; margin-top: 1rem;">Tanpa spam. Bisa berhenti kapan saja.</p>
+      </div>
+
+      <div style="display: flex; flex-wrap: wrap; gap: 2rem; margin-top: 3rem; justify-content: space-between;">
+        <div style="flex:1; min-width: 200px;">
+          <h3 style="color:#1f4f3a; margin-bottom: 1rem;"><i class="fas fa-map-marker-alt"></i> Kunjungi Kami</h3>
+          <p>CLEARLET Studio<br>Jl. Kemurnian No. 14, Jakarta Selatan<br>Buka Senin - Sabtu 10:00 - 18:00</p>
+          <p><i class="fas fa-envelope"></i> hello@clearlet.com<br><i class="fas fa-phone-alt"></i> +62 812 3456 7890</p>
+        </div>
+        <div style="flex:1; min-width: 200px;">
+          <h3 style="color:#1f4f3a; margin-bottom: 1rem;">Layanan Konsultasi</h3>
+          <p>Butuh rekomendasi rutinitas skincare sesuai jenis kulit? Tim ahli kami siap membantu via WhatsApp atau Zoom.</p>
+          <a href="#" class="btn" style="padding: 0.5rem 1.5rem; margin-top: 0.5rem; display: inline-block;">Chat Ahli →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>CLEARLET</h4>
+        <a href="#about">Tentang Kami</a>
+        <a href="#">Keberlanjutan</a>
+        <a href="#">Kebijakan Privasi</a>
+      </div>
+      <div class="footer-col">
+        <h4>Bantuan</h4>
+        <a href="#">Cara Order</a>
+        <a href="#">Pengembalian</a>
+        <a href="#">FAQ</a>
+      </div>
+      <div class="footer-col">
+        <h4>Ikuti Kami</h4>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-tiktok"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="copyright">
+      <p>© 2026 CLEARLET — Pure. Clear. Radiant. Seluruh hak cipta dilindungi.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // mobile menu toggle
+  const mobileBtn = document.getElementById('mobileMenuBtn');
+  const navLinks = document.getElementById('navLinks');
+  if (mobileBtn) {
+    mobileBtn.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+  }
+
+  const navItems = document.querySelectorAll('.nav-links a');
+  navItems.forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('active');
+    });
+  });
+
+  // smooth scroll for hash links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const targetId = this.getAttribute('href');
+      if (targetId === "#" || targetId === "") return;
+      const targetElement = document.querySelector(targetId);
+      if (targetElement) {
+        e.preventDefault();
+        targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        history.pushState(null, null, targetId);
+      }
+    });
+  });
+
+  const newsletterForm = document.getElementById('newsletterForm');
+  if (newsletterForm) {
+    newsletterForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert("Terima kasih telah berlangganan! Rahasia kulit jernih akan segera masuk ke inbox Anda ✨");
+      newsletterForm.reset();
+    });
+  }
+</script>
+</body>
+</html>
